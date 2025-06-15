@@ -4,17 +4,25 @@ import javax.swing.JTextArea;
 public class IntArray {
     public static void main(String[] args) {
 
-        int array[] = {32, 27, 64, 18, 95, 14, 90, 70, 60, 37};
+        final int ARRAY_SIZE = 10;
+        int array[];
+
+        array = new int[ ARRAY_SIZE ];
+
+        for (int counter = 0; counter < array.length; counter++) {
+            array[ counter ] = 2 + 2 * counter;
+        }
 
         String output = "Índice\tValores\n";
 
         for (int counter = 0; counter < array.length; counter++) {
-            output += counter + "\t" + array[counter] + "\n";
+            output += counter + "\t" + array[ counter ] + "\n";
         }
+
         JTextArea outputArea = new JTextArea();
         outputArea.setText(output);
 
-        JOptionPane.showMessageDialog(null, outputArea, "Initializing an Array of int Values",
+        JOptionPane.showMessageDialog(null, outputArea, "Initializing to Even Numbers from 2 to 20",
                 JOptionPane.INFORMATION_MESSAGE);
     }
 }
