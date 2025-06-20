@@ -4,25 +4,22 @@ import javax.swing.JTextArea;
 public class IntArray {
     public static void main(String[] args) {
 
-        final int ARRAY_SIZE = 10;
-        int array[];
+        int array[] = { 19, 3, 15, 7, 11, 9, 13, 5, 17, 1 };
 
-        array = new int[ ARRAY_SIZE ];
-
-        for (int counter = 0; counter < array.length; counter++) {
-            array[ counter ] = 2 + 2 * counter;
-        }
-
-        String output = "Índice\tValores\n";
+        String output = "Element\tValues\tHistogram";
 
         for (int counter = 0; counter < array.length; counter++) {
-            output += counter + "\t" + array[ counter ] + "\n";
+            output += "\n" + counter + "\t" + array[counter] + "\t";
+
+            for (int stars = 0; stars < array[counter]; stars++) {
+                output += "*";
+            }
         }
 
         JTextArea outputArea = new JTextArea();
         outputArea.setText(output);
 
-        JOptionPane.showMessageDialog(null, outputArea, "Initializing to Even Numbers from 2 to 20",
+        JOptionPane.showMessageDialog(null, outputArea, "Histogram Printing Program",
                 JOptionPane.INFORMATION_MESSAGE);
     }
 }
